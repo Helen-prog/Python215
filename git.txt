@@ -1,0 +1,106 @@
+Система контроля версий (Version Control Systems, VCS) — это система, сохраняющая изменения в одном или нескольких файлах так, чтобы потом можно было восстановить определённые старые версии.
+
+git --version
+2.39.1
+
+git --help
+
+
+git init
+- создание пустого репозитория (создается один раз)
+
+git status
+- статус репозитория
+
+git add -A
+- добавить данные в index (файлы отслеживаемые git)
+		-A, --all - все файлы, которые находятся я папке и во всех подпапках
+		main.py - добавляет файл
+		. - добавляет все файлы из текущей директории
+		
+
+(--global - один раз, --local - один раз для одного репозитория)		
+git config --global user.name 'new_user'
+git config --global user.name
+
+
+git config --global user.email 'test@mail.ru'
+git config --global user.email
+
+
+git commit -m "first commit"
+
+файл .gitignore
+
+
+
+Ветки
+
+git branch
+-просмотр веток
+
+git branch test
+- добаление ветки
+
+git branch -D test
+- удаление ветки
+
+
+git branch readme
+git checkout readme
+- перейти на ветку
+
+git checkout -b new
+- создаем ветку и сразу на нее переходим
+
+
+git branch -D new
+
+
+readme.md
+
+git checkout master
+
+master  ->  readme  
+	все    		все  
+	readme.md     readme.md		
+
+git merge readme
+-merge - слияние
+
+git log
+- история коммитов
+
+
+токен
+
+Win + R => control
+
+Диспечер учетных данных
+Учетные данные Windows
+Добавить общие учетные данные
+
+https://github.com
+имя учетной записи github
+
+
+git remote add origin https://github.com/Helen-prog/Python215.git
+
+git push -u origin master
+
+git push
+- для переноса файлов с локального репозитория на удаленный (git -> GitHub)
+
+1. git add .
+2. git commit -m "change"
+3. git push
+
+367bb1d592f05224c3ba83f2d20ab5705830c669
+
+git clone https://github.com/Helen-prog/Python215.git
+
+git pull
+- забираем изменения с удаленного репозитория в локальный
+
+
+		
