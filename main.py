@@ -1210,5 +1210,10 @@ from random import randint
 
 # https://github.com/
 
-print("Hello")
+# print("Hello")
+
+print("Проверка репозитория")
+
+
+
 
