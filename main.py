@@ -1218,5 +1218,10 @@ from random import randint
 print("Вносим изменения в слонированный проект")
 
 
+print("Hello")
+
+
+
+
 
 
