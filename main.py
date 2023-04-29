@@ -6764,10 +6764,18 @@ def generate_headers(method, url):
     return 'HTTP/1.1 200!\n\n', 200
 
 
+def generate_content(code, url):
+    if code == 404:
+        return '<h1>404</h1><h3>Page Not Found</h3>'
+    elif code == 405:
+        return '<h1>405</h1><h3>Page Not Allowed</h3>'
+    return URLS[url]
+
+
 def generate_response(request):
     method, url = parse_request(request)
     headers, code = generate_headers(method, url)
-    body = URLS[url]
+    body = generate_content(code, url)
     return (headers + body).encode()
 
 
