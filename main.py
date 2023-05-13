@@ -6741,58 +6741,150 @@ import os
 # for ind, article in enumerate(articles, 5):
 #     print(f"{ind}. {article}")
 
-import socket
+# import socket
+# from view import index, blog
+#
+# URLS = {
+#     '/': index,
+#     '/blog': blog
+# }
+#
+#
+# def parse_request(request):
+#     parsed = request.split()
+#     method = parsed[0]
+#     url = parsed[1]
+#     return method, url
+#
+#
+# def generate_headers(method, url):
+#     if method != 'GET':
+#         return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
+#     if url not in URLS:
+#         return 'HTTP/1.1 404 Page Not Found\n\n', 404
+#     return 'HTTP/1.1 200!\n\n', 200
+#
+#
+# def generate_content(code, url):
+#     if code == 404:
+#         return '<h1>404</h1><h3>Page Not Found</h3>'
+#     elif code == 405:
+#         return '<h1>405</h1><h3>Page Not Allowed</h3>'
+#     return URLS[url]()
+#
+#
+# def generate_response(request):
+#     method, url = parse_request(request)
+#     headers, code = generate_headers(method, url)
+#     body = generate_content(code, url)
+#     return (headers + body).encode()
+#
+#
+# def run():
+#     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server_socket.bind(('127.0.0.1', 5000))  # 127.0.0.1:5000
+#     server_socket.listen()
+#
+#     while True:
+#         client_socket, addr = server_socket.accept()
+#         request = client_socket.recv(1024)
+#         print(f"Клиент: {addr} => \n{request}\n")
+#
+#         response = generate_response(request.decode())
+#         client_socket.sendall(response)
+#         client_socket.close()
+#
+#
+# if __name__ == '__main__':
+#     run()
 
-URLS = {
-    '/': "index page",
-    '/blog': 'blog page'
-}
+
+# import sqlite3
+#
+# # con = sqlite3.connect("profile.db")
+# # cur = con.cursor()
+# #
+# # cur.execute("""
+# # """)
+# #
+# # con.close()
+#
+# with sqlite3.connect("profile.db") as con:
+#     cur = con.cursor()
+#     cur.execute("""CREATE TABLE IF NOT EXISTS user(
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL,
+#     summa REAL,
+#     date TEXT
+#     )""")
+
+# import sqlite3
+#
+# with sqlite3.connect("users.db") as con:
+#     cur = con.cursor()
+    # cur.execute("""CREATE TABLE IF NOT EXISTS person(
+    #     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    #     name TEXT NOT NULL,
+    #     phone BLOB NOT NULL DEFAULT '+79090000000',
+    #     age INTEGER CHECK(age > 0 AND age < 100),
+    #     email TEXT NOT NULL UNIQUE
+    # )""")
+
+    # cur.execute("""
+    # ALTER TABLE person
+    # RENAME TO person_table
+    # """)
+
+    # cur.execute("""
+    # ALTER TABLE person_table
+    # ADD COLUMN address TEXT NOT NULL DEFAULT 'city, address'
+    # """)
+
+    # cur.execute("""
+    # ALTER TABLE person_table
+    # RENAME COLUMN address TO home_address
+    # """)
+
+    # cur.execute("""
+    # ALTER TABLE person_table
+    # DROP COLUMN home_address
+    # """)
+
+    # cur.execute("""
+    # DROP TABLE person_table
+    # """)
+
+import sqlite3
+
+with sqlite3.connect("db_4.db") as con:
+    cur = con.cursor()
+    cur.execute("""
+    SELECT *
+    FROM Ware
+    ORDER BY Price DESC
+    LIMIT 2, 5;
+    """)
+
+    # res = cur.fetchall()
+    # print(res)
+
+    # for res in cur:
+    #     print(res)
+
+    # res = cur.fetchone()
+    # print(res)
+    # for res in cur:
+    #     print(res)
+
+    res2 = cur.fetchone()
+    print(res2)
+
+    res3 = cur.fetchmany(2)
+    print(res3)
 
 
-def parse_request(request):
-    parsed = request.split()
-    method = parsed[0]
-    url = parsed[1]
-    return method, url
 
 
-def generate_headers(method, url):
-    if method != 'GET':
-        return 'HTTP/1.1 405 Method Not Allowed!\n\n', 405
-    if url not in URLS:
-        return 'HTTP/1.1 404 Page Not Found\n\n', 404
-    return 'HTTP/1.1 200!\n\n', 200
 
 
-def generate_content(code, url):
-    if code == 404:
-        return '<h1>404</h1><h3>Page Not Found</h3>'
-    elif code == 405:
-        return '<h1>405</h1><h3>Page Not Allowed</h3>'
-    return URLS[url]
 
-
-def generate_response(request):
-    method, url = parse_request(request)
-    headers, code = generate_headers(method, url)
-    body = generate_content(code, url)
-    return (headers + body).encode()
-
-
-def run():
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('127.0.0.1', 5000))  # 127.0.0.1:5000
-    server_socket.listen()
-
-    while True:
-        client_socket, addr = server_socket.accept()
-        request = client_socket.recv(1024)
-        print(f"Клиент: {addr} => \n{request}\n")
-
-        response = generate_response(request.decode())
-        client_socket.sendall(response)
-        client_socket.close()
-
-
-if __name__ == '__main__':
-    run()
