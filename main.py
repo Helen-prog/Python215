@@ -7024,16 +7024,16 @@ import os
 #     );
 #     """)
 
-    # img = read_ava(1)
-    # if img:
-    #     binary = sqlite3.Binary(img)
-    #     cur.execute("INSERT INTO users VALUES('Илья', ?, 1000)", (binary,))
-    #
-    # cur.execute("SELECT ava FROM users")
-    # img = cur.fetchone()['ava']
-    #
-    # output = write_ava('out.png', img)
-    # print(output)
+# img = read_ava(1)
+# if img:
+#     binary = sqlite3.Binary(img)
+#     cur.execute("INSERT INTO users VALUES('Илья', ?, 1000)", (binary,))
+#
+# cur.execute("SELECT ava FROM users")
+# img = cur.fetchone()['ava']
+#
+# output = write_ava('out.png', img)
+# print(output)
 
 # with sqlite3.connect('cars.db') as con:
 #     cur = con.cursor()
@@ -7053,17 +7053,302 @@ import os
 
 # pip install sqlalchemy
 
-import os
+# import os
+#
+# from sqlalchemy import and_, or_, not_, desc, func, distinct
+#
+# from models.database import DATABASE_NAME, Session
+# import create_database as db_creator
+#
+# from models.lesson import Lesson, association_table
+# from models.student import Student
+# from models.group import Group
+#
+#
+# if __name__ == '__main__':
+#     db_is_created = os.path.exists(DATABASE_NAME)
+#     if not db_is_created:
+#         db_creator.create_database()
+#
+#     session = Session()
+#
+#     # print(session.query(Lesson).all())
+#     # print("*" * 60)
+#     #
+#     # for it in session.query(Lesson):
+#     #     print(it.lesson_title)
+#     #
+#     # print("*" * 60)
+#     # print(session.query(Lesson).count())
+#     # print("*" * 60)
+#     #
+#     # print(session.query(Lesson).first())
+#     # print("*" * 60)
+#
+#     # for it in session.query(Lesson).filter(not_(Lesson.id > 3), not_(Lesson.lesson_title.like('Ф%'))):
+#     #     print(it)
+#     #
+#     # print("*" * 60)
+#
+#     # for it, gr in session.query(Lesson.lesson_title, Group.group_name).filter(
+#     #         and_(association_table.c.lesson_id == Lesson.id,
+#     #              association_table.c.group_id == Group.id,
+#     #              Group.group_name == 'MDA-9')):
+#     #     print(it, gr)
+#
+#     # print(session.query(Lesson).filter(Lesson.lesson_title is not None).all())
+#     # print("*" * 60)
+#     #
+#     # print(session.query(Lesson).filter(Lesson.lesson_title.notin_(['Математика', 'Линейная алгебра'])).all())
+#     # print("*" * 60)
+#
+#     # print(session.query(Student).filter(Student.age.between(16, 17)).all())
+#     # print("*" * 60)
+#     #
+#     # print(session.query(Student).filter(not_(Student.age.between(16, 17))).all())
+#     # print("*" * 60)
+#
+#     # print(session.query(Student).filter(Student.age.like('1%')).limit(4).all())
+#     # print("*" * 60)
+#     #
+#     # for it in session.query(Student).filter(Student.age.like('1%')).limit(4):
+#     #     print(it)
+#     # print("*" * 60)
+#     #
+#     # for it in session.query(Student).filter(Student.age.like('1%')).limit(4).offset(3):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # for it in session.query(Student).order_by(desc(Student.surname)):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # for it in session.query(Student).join(Group).filter(Group.group_name == 'MDA-9'):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # for it in session.query(func.count(Student.surname), Group.group_name).join(Group).group_by(Group.group_name):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # for it in session.query(func.count(Student.surname), Group.group_name).join(Group).group_by(
+#     #         Group.group_name).having(func.count(Student.surname) < 25):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # for it in session.query(distinct(Student.age)):
+#     #     print(it)
+#
+#     # for it in session.query(Student.age).filter(Student.age < 20).distinct():
+#     #     print(it)
+#
+#     # for it in session.query(Lesson):
+#     #     print(it)
+#     # print("*" * 60)
+#     #
+#     # i = session.query(Lesson).first()
+#     # i.lesson_title = "Информатика"
+#     # session.add(i)
+#     # session.commit()
+#
+#     # for it in session.query(Lesson):
+#     #     print(it)
+#     # print("*" * 60)
+#     #
+#     # session.query(Lesson).filter(
+#     #     Lesson.lesson_title.like('%м%')
+#     # ).update({'lesson_title': 'М'},
+#     #          synchronize_session='fetch')
+#     # session.commit()
+#     #
+#     # for it in session.query(Lesson):
+#     #     print(it)
+#     # print("*" * 60)
+#
+#     # session.add(Lesson(lesson_title="Математика"))
+#     # session.commit()
+#     #
+#
+#     i = session.query(Lesson).filter(Lesson.lesson_title == 'М').first()
+#     session.delete(i)
+#     session.commit()
+#
+#     for it in session.query(Lesson):
+#         print(it)
+#     print("*" * 60)
 
-from models.database import DATABASE_NAME, Session
-import create_database as db_creator
 
-from models.lesson import Lesson, association_table
-from models.student import Student
-from models.group import Group
+# Jinja
+# pip install jinja2
+
+# from jinja2 import Template
+
+# name = "Игорь"
+# age = 28
+# per = {'name': 'Игорь', 'age': 28}
 
 
-if __name__ == '__main__':
-    db_is_created = os.path.exists(DATABASE_NAME)
-    if not db_is_created:
-        db_creator.create_database()
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def get_name(self):
+#         return self.name
+#
+#     def get_age(self):
+#         return self.age
+#
+#
+# per = Person("Игорь", 28)
+#
+# tm = Template("Привет {{ p.get_name() }}. Тебе {{ p.get_age() }} лет?")
+# msg = tm.render(p=per)
+#
+# print(msg)
+# per = [9, 5, 7, 1, 3, 4, 6]
+# link = """{% for i in p %}{{ i }}{% endfor %}"""
+# tm = Template(link)
+# msg = tm.render(p=per)
+#
+# print(msg)
+
+# cities = [
+#     {'id': 1, 'city': 'Москва'},
+#     {'id': 2, 'city': 'Смоленск'},
+#     {'id': 3, 'city': 'Минск'},
+#     {'id': 4, 'city': 'Ялта'},
+#     {'id': 5, 'city': 'Ярославль'},
+# ]
+# link = """<select name="sities">
+# {%- for c in cities %}
+#     {%- if c.id > 3 %}
+#     <option value="{{ c['id'] }}">{{ c.city }}</option>
+#     {%- elif c.city == 'Москва' %}
+#     <option>{{ c.city }}</option>
+#     {%- else %}
+#     {{ c['city'] }}
+#     {%- endif %}
+# {%- endfor %}
+# </select>
+# """
+# tm = Template(link)
+# msg = tm.render(cities=cities)
+#
+# print(msg)
+#
+# cars = [
+#     {'model': 'Audi', 'price': 23000},
+#     {'model': 'Skoda', 'price': 17300},
+#     {'model': 'Renault', 'price': 44300},
+#     {'model': 'Wolksvagen', 'price': 21300},
+# ]
+#
+# # tpl = "{{ (cs | max(attribute='price')).model }}"
+# tpl = "{{ cs | replace('model', 'brand') }}"
+# tm = Template(tpl)
+# msg = tm.render(cs=cars)
+#
+# print(msg)
+
+
+# persons = [
+#     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
+#     {'name': 'Никита', 'year': 28, 'weight': 82.0},
+#     {'name': 'Виталий', 'year': 33, 'weight': 94.5}
+# ]
+# tpl = """
+# {%- for u in users %}
+#   {% filter upper %}  {{ u.name }} {% endfilter -%}
+#   {%- filter string %}{{ u.year }} - {{ u.weight }}{% endfilter %}
+# {%- endfor %}
+# """
+# tm = Template(tpl)
+# msg = tm.render(users=persons)
+#
+# print(msg)
+
+# html = """
+# {% macro text_input(name, value='', type='text', size=20) %}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# {% endmacro %}
+#
+# <p>{{ text_input('username') }}</p>
+# <p>{{ text_input('email') }}</p>
+# <p>{{ text_input('password', type='password') }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
+
+# html = """
+# {% macro text_input(name, placeholder, type='text') %}
+#     <input type="{{ type }}" name="{{ name }}" placeholder="{{ placeholder }}">
+# {% endmacro %}
+#
+# <p>{{ text_input('firstname', 'Имя') }}</p>
+# <p>{{ text_input('lastname', 'Фамилия') }}</p>
+# <p>{{ text_input('address', 'Адрес') }}</p>
+# <p>{{ text_input('phone', 'Телефон', 'tel') }}</p>
+# <p>{{ text_input('email', 'Почта', 'email') }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
+
+
+# persons = [
+#     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
+#     {'name': 'Никита', 'year': 28, 'weight': 82.0},
+#     {'name': 'Виталий', 'year': 33, 'weight': 94.5}
+# ]
+#
+# html = """
+# {% macro list_users(list_of_user) %}
+#     <ul>
+#         {%- for u in list_of_user %}
+#         <li>{{ u.name }} {{ caller(u) }}</li>
+#         {%- endfor %}
+#     </ul>
+# {% endmacro %}
+#
+# {% call(user) list_users(users) %}
+#     <ul>
+#         <li>age: {{ user.year }}</li>
+#         <li>weight: {{ user.weight }}</li>
+#     </ul>
+# {% endcall %}
+# """
+#
+# tm = Template(html)
+# msg = tm.render(users=persons)
+#
+# print(msg)
+
+from jinja2 import Environment, FileSystemLoader
+
+
+# persons = [
+#     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
+#     {'name': 'Никита', 'year': 28, 'weight': 82.0},
+#     {'name': 'Виталий', 'year': 33, 'weight': 94.5}
+# ]
+
+# subs = ["Культура", "Наука", "Политика", "Спорт"]
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('about.html')
+# msg = tm.render(list_table=subs)
+#
+# print(msg)
+import time
+import math
+
+tm = math.floor(time.time())
+print(tm)

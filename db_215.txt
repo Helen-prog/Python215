@@ -20,6 +20,8 @@ WHERE условие
 		[^0-9]
 	выражение IS [NOT] NULL
 	выражение [NOT] IN (набор_значений)
+GROUP BY (сгруппировать по)
+HAVING (условие)
 ORDER BY название_столбец | номер_столбца [ASC | DESC]
 LIMIT кол-во_строк OFFSET смещение
 LIMIT [смещение,] кол-во_строк
@@ -47,8 +49,86 @@ DELETE FROM имя_таблицы
 разработчики физической базы данных
 
 
+SUM - сумма (только числа)
+AVG - среднее арифметическое (только числа)
+COUNT - количество
+MIN - минимальное значение
+MAX - максимальное значение
+
+
+однострочный запрос: =, >, <, >=, <=
+многострочные запросы: IN (NOT IN)
+EXISTS
+
+UNION, UNION ALL
+
+models
+	__init__.py
+	database.py
+	group.py
+	lesson.py
+	student.py
 	
+create_database.py
 	
+pip install faker
+
+file:///D:/Python330/HTML/display/index.html?sities=2
+
+templates
+	home.html
+	
+	header.html
+	main.html
+	footer.html
+	
+	dialogs.html
+	
+	page.html
+	about.html
+
+
+	
+Flask
+Django
+
+pip install flask
+
+flsite
+	first.py
+	templates
+		index.html
+		about.html
+		base.html
+	static
+		css
+			style.css
+		
+	
+http://127.0.0.1:5000/
+http://127.0.0.1:5000/profile/admin/5
+
+http://127.0.0.1:5000/contact?username=igor&email=igor%40gmail.com&message=mes
+
+
+int - должны присутствовать только цифры
+float - должны присутствовать числа с плавающей точкой
+path - можно использовать любые допустимые символы URL + "/"
+
+flash
+get_flashed_messages()
+
+import os
+os.urandom(20).hex()	
+	
+from flsite.first import create_db
+create_db()
+
+tasks
+	app.py
+	static
+	templates
+		index.html
 	
 	
 	

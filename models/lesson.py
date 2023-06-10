@@ -14,3 +14,6 @@ class Lesson(Base):
     id = Column(Integer, primary_key=True)
     lesson_title = Column(String(250), nullable=False)
     groups = relationship("Group", secondary=association_table, backref="group_lesson")
+
+    def __repr__(self):
+        return f"Предмет (ID: {self.id}, Название: {self.lesson_title})"
