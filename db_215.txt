@@ -216,6 +216,7 @@ models.SET_DEFAULT - задачи останутся в базе, даже пр�
 fourth
 django-admin startproject devsearch	
 python manage.py startapp projects
+python manage.py startapp users
 
 base.html
 navbar.html
@@ -234,4 +235,7 @@ Project.objects.filter(id=1)
 Project.objects.filter(title__startswith="Website")
 Project.objects.filter(title__contains="web")
 Project.objects.filter(vote_total__lt=37)
+Project.objects.exclude(id=1)
+Project.objects.filter(title__contains="web").order_by("-title")
 
+forms.py
