@@ -239,3 +239,17 @@ Project.objects.exclude(id=1)
 Project.objects.filter(title__contains="web").order_by("-title")
 
 forms.py
+signals.py
+
+http://127.0.0.1:8000/projects/?search_query=word
+
+http://127.0.0.1:8000/projects/?page=2
+
+pagination.html
+
+
+http://127.0.0.1:8000/projects/?search_query=web
+http://127.0.0.1:8000/projects/?page=2
+
+http://127.0.0.1:8000/projects/?search_query=web&page=2
+http://127.0.0.1:8000/projects/?search_query=web&page=2
