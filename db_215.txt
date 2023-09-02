@@ -259,4 +259,55 @@ django-admin startproject programming_blog
 python manage.py startapp blog
 
 
+str - любая непустая строка, исключая символ "/"
+int - любое положительное число
+slug - латиница ASCII таблицы, символ дефиса и подчеркивание
+uuid - цифры, малые латинские символы и дефис
+path - любая непустая строка, включая символ "/"
+
+
+templatetags
+	__init__.py
+	blog_tags.py
+	
+
+mkvirtualenv --python=/usr/bin/python3.10 blogvenv
+mkvirtualenv --python=/usr/bin/python3.9 blogvenv
+
+deactivate - для выхода из виртруального окружения
+workon blogvenv - для повторного входа
+
+pip install django
+pip install pillow
+pip install django-simple-captcha
+pip install django-ckeditor
+
+
+sixth
+django-admin startproject landing_page
+python manage.py startapp cms
+python manage.py startapp price
+python manage.py startapp crm
+python manage.py startapp telebot
+
+price.html
+
+@BotFather
+
+Бот обработчик заявок с сайта
+obrabotchik_zayavok_bot
+
+5994415549:AAEqvafkq2Zh-ybj4hwqiINswnkFzhCVOv0
+
+https://api.telegram.org/bot<token>/НАЗВАНИЕ_МЕТОДА
+
+https://api.telegram.org/bot5994415549:AAEqvafkq2Zh-ybj4hwqiINswnkFzhCVOv0/sendMessage?chat_id=-933579098&text=test
+
+sendMessage
+
+@get_id_bot
+
+/my_id@get_id_bot
+
+sendmessage.py
 
